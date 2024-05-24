@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:async';
 import 'dart:math';
@@ -5,6 +6,8 @@ import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
 import 'package:flutter/widgets.dart';
+
+import 'dart:ui' as ui show Codec, hashValues;
 
 /// Calculate crc32 checksum
 ///
@@ -454,3 +457,6 @@ class OffsetTween extends Tween<Offset?> {
   @override
   Offset lerp(double t) => (begin! + (end! - begin!) * t);
 }
+
+
+typedef ui.Codec DecoderCallback(Uint8List? data, { int? cacheWidth, int? cacheHeight});
