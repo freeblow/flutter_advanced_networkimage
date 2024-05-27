@@ -109,20 +109,7 @@ class LoadImage extends StatelessWidget {
           },
         ),
         Expanded(
-          child: SvgPicture(
-            AdvancedNetworkSvg(
-              svgUrl, //svgByteDecoder
-              (theme) => (bytes, colorFilter, key) {
-                return svg.svgPictureDecoder(
-                  bytes ?? Uint8List.fromList(const []),
-                  false,
-                  colorFilter,
-                  key,
-                  theme: theme,
-                );
-              },
-            ),
-          ),
+          child: SvgPicture.network(svgUrl),
         ),
       ],
     );
